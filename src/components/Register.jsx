@@ -16,8 +16,7 @@ function Register() {
       [e.target.name]: e.target.value,
     });
   }
-
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
 
     const emailRegex =
@@ -28,28 +27,34 @@ function Register() {
       return;
     }
 
-    const registrations = JSON.parse(
-      localStorage.getItem("hackbuzzRegistrations") || "[]"
-    );
+    try {
+      const response = await fetch(
+        "https://script.google.com/macros/s/AKfycbxZcGzQD2Vgru-M-HoOVjG22yyLbpj6c0iTVKdtEpD4Sh28_OlqoJuhzSwR0a9RqzIk/exec",
+        {
+          method: "POST",
+          body: JSON.stringify(form),
+        }
+      );
 
-    registrations.push({
-      ...form,
-      registeredAt: new Date().toISOString(),
-    });
+      if (!response.ok) {
+        throw new Error("Registration failed");
+      }
 
-    localStorage.setItem(
-      "hackbuzzRegistrations",
-      JSON.stringify(registrations)
-    );
+      setMessage("Registration successful! 🚀");
 
-    setMessage("You're registered for Hackbuzz! 🚀");
+      setForm({
+        name: "",
+        email: "",
+        college: "",
+        teamSize: "1",
+      });
 
-    setForm({
-      name: "",
-      email: "",
-      college: "",
-      teamSize: "1",
-    });
+    } catch (error) {
+      console.error(error);
+      setMessage(
+        "Something went wrong. Please try again."
+      );
+    }
   }
 
   return (
