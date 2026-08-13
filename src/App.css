@@ -1,0 +1,435 @@
+* {
+    box-sizing: border-box
+}
+
+html {
+    scroll-behavior: smooth
+}
+
+body {
+    margin: 0;
+    background: #08090b;
+    color: #f4f4f2;
+    font-family: Inter, Arial, sans-serif
+}
+
+a {
+    text-decoration: none;
+    color: inherit
+}
+
+.nav {
+    height: 74px;
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 7%;
+    background: rgba(8, 9, 11, .82);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid #202226
+}
+
+.brand {
+    font-family: "Space Grotesk";
+    font-weight: 800;
+    letter-spacing: -1px;
+    font-size: 20px
+}
+
+.brand span {
+    color: #d7ff35
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+    color: #a9adb4;
+    font-size: 14px
+}
+
+.nav-links a:hover {
+    color: #d7ff35
+}
+
+.menu {
+    display: none;
+    background: none;
+    border: 0;
+    color: white;
+    font-size: 25px
+}
+
+.hero {
+    min-height: calc(100vh - 74px);
+    padding: 8% 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid #202226
+}
+
+.hero-copy {
+    max-width: 650px;
+    z-index: 1
+}
+
+.eyebrow {
+    color: #d7ff35;
+    font-weight: 800;
+    letter-spacing: 2px;
+    font-size: 12px
+}
+
+.hero h1 {
+    font-family: "Space Grotesk";
+    font-size: clamp(70px, 11vw, 150px);
+    line-height: .83;
+    letter-spacing: -7px;
+    margin: 28px 0
+}
+
+.hero h1 em,
+h2 em {
+    font-style: normal;
+    color: #d7ff35
+}
+
+.hero-text {
+    color: #9da1a8;
+    max-width: 530px;
+    line-height: 1.7
+}
+
+.hero-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 30px
+}
+
+.btn {
+    display: inline-block;
+    padding: 14px 20px;
+    border-radius: 5px;
+    border: 1px solid #35383d;
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer
+}
+
+.primary {
+    background: #d7ff35;
+    color: #08090b;
+    border-color: #d7ff35
+}
+
+.primary:hover {
+    filter: brightness(.92)
+}
+
+.ghost:hover {
+    border-color: #d7ff35
+}
+
+.countdown-card {
+    width: min(460px, 100%);
+    border: 1px solid #34373b;
+    background: #101216;
+    padding: 28px;
+    z-index: 1;
+    box-shadow: 0 20px 80px #000
+}
+
+.card-top {
+    display: flex;
+    justify-content: space-between;
+    color: #777c84;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1px
+}
+
+.card-top b {
+    color: #d7ff35
+}
+
+.countdown {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 13px;
+    margin: 35px 0 22px
+}
+
+.countdown div {
+    text-align: center
+}
+
+.countdown strong {
+    font-family: "Space Grotesk";
+    font-size: 45px
+}
+
+.countdown small {
+    display: block;
+    color: #777c84;
+    font-size: 9px;
+    letter-spacing: 1px
+}
+
+.countdown i {
+    color: #444;
+    font-style: normal;
+    font-size: 30px
+}
+
+.countdown-card>p {
+    text-align: center;
+    color: #8d9299;
+    font-size: 12px
+}
+
+.glow {
+    position: absolute;
+    width: 420px;
+    height: 420px;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: .08;
+    background: #d7ff35
+}
+
+.glow-one {
+    right: 5%;
+    top: 5%
+}
+
+.glow-two {
+    left: 10%;
+    bottom: -30%
+}
+
+.section {
+    padding: 110px 7%;
+    border-bottom: 1px solid #202226
+}
+
+.section h2 {
+    font-family: "Space Grotesk";
+    font-size: clamp(45px, 6vw, 80px);
+    line-height: .95;
+    letter-spacing: -3px;
+    margin: 20px 0 60px
+}
+
+.feature-grid,
+.prize-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px
+}
+
+.feature-grid article,
+.prize {
+    border: 1px solid #292c30;
+    padding: 28px;
+    min-height: 200px;
+    background: #0d0f12
+}
+
+.feature-grid span,
+.prize small {
+    color: #777c84;
+    font-size: 11px
+}
+
+.feature-grid h3 {
+    font-size: 22px
+}
+
+.feature-grid p,
+.prize p,
+.register-copy>p {
+    color: #858a92;
+    line-height: 1.6
+}
+
+.timeline {
+    max-width: 850px;
+    border-left: 1px solid #3a3d42;
+    margin-left: 15px
+}
+
+.time-item {
+    display: grid;
+    grid-template-columns: 130px 1fr;
+    padding: 0 0 45px 35px;
+    position: relative
+}
+
+.time-item:before {
+    content: "";
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #d7ff35;
+    position: absolute;
+    left: -5px;
+    top: 4px
+}
+
+.time-item time {
+    color: #d7ff35;
+    font-weight: 700;
+    font-size: 13px
+}
+
+.time-item h3 {
+    margin: 0 0 8px
+}
+
+.time-item p {
+    color: #777c84;
+    margin: 0;
+    line-height: 1.5
+}
+
+.prize strong {
+    font-family: "Space Grotesk";
+    display: block;
+    font-size: 55px;
+    margin: 35px 0 8px
+}
+
+.prize.feature {
+    border-color: #d7ff35
+}
+
+.register {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 90px
+}
+
+.register h2 {
+    margin-bottom: 25px
+}
+
+.register form {
+    display: grid;
+    gap: 16px
+}
+
+label {
+    font-size: 12px;
+    color: #aaa;
+    display: grid;
+    gap: 7px
+}
+
+input,
+select {
+    width: 100%;
+    padding: 14px;
+    background: #101216;
+    color: #fff;
+    border: 1px solid #30343a;
+    border-radius: 4px;
+    outline: none
+}
+
+input:focus,
+select:focus {
+    border-color: #d7ff35
+}
+
+form .btn {
+    margin-top: 8px
+}
+
+.form-message {
+    font-size: 13px;
+    color: #d7ff35;
+    min-height: 18px
+}
+
+footer {
+    padding: 30px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #777c84;
+    font-size: 12px
+}
+
+.nav,
+.section,
+footer {
+    max-width: 1600px;
+    margin: auto
+}
+
+@media(max-width:800px) {
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 74px;
+        left: 0;
+        right: 0;
+        padding: 20px 7%;
+        background: #0b0c0f;
+        flex-direction: column
+    }
+
+    .nav-links.open {
+        display: flex
+    }
+
+    .menu {
+        display: block
+    }
+
+    .hero {
+        padding-top: 70px;
+        flex-direction: column;
+        align-items: flex-start
+    }
+
+    .hero h1 {
+        letter-spacing: -4px
+    }
+
+    .countdown-card {
+        margin-top: 20px
+    }
+
+    .feature-grid,
+    .prize-grid,
+    .register {
+        grid-template-columns: 1fr
+    }
+
+    .register {
+        gap: 35px
+    }
+
+    .time-item {
+        grid-template-columns: 90px 1fr
+    }
+
+    .section {
+        padding-top: 80px;
+        padding-bottom: 80px
+    }
+
+    footer {
+        flex-direction: column;
+        gap: 15px;
+        align-items: flex-start
+    }
+}
